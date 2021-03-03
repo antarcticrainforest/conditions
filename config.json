@@ -1,5 +1,9 @@
 {
    "Tabs": {
+      "entries": [
+         "ts_plotly",
+         "ts_plotly"
+      ],
       "filenames": {
          "ts_plotly": "media/ts_plotly.html"
       },
