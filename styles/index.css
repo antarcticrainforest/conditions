@@ -185,7 +185,8 @@ li a:hover:not(.active) {
   border: 0px solid #ccc;
   border-top: none;
   animation: fadeEffect 1s; /* Fading effect takes 1 second */
-  width: 120%;
+  width: 100%;
+  min-height: 500px;
 }
 
 /* Go from zero to full opacity */
