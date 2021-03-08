@@ -44,11 +44,8 @@ function add_tab(label, disp_label, config, defaulttab, width, height){
     const data = "test.html";
     var alltabs = $('#alltabs');
     var tabhead = $('.tab');
-    var apply_id = 'apply_'+label;
-    var plot_id = 'map_img_'+label;
     var fn = config.filenames[label];
-    var tab = '<fieldset><object class="ext_obj" data="'+fn+'" width="'+width+'" height="'+height+'" id="'+plot_id+'">       Your browser doesn’t support the object tag. </object>';
-    var div = '<div id="'+label+'", class="tabcontent">'+tab+'</div>';
+    var div = '<div id="'+label+'", class="tabcontent">'+loadFile(fn)+'</div>';
     var onclick = "openTab(event, '"+label+"')";
     var button = '<button class="tablinks" onclick="'+onclick+'" '+defaulttab+'>'+disp_label+'</button>';
     alltabs.append(div);
