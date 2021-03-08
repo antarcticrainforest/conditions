@@ -32,6 +32,12 @@ function loadFile(filePath) {
 }
 
 
+async function adisp(fn){
+    await loadFile(fn);
+}
+
+
+
 
 function add_tab(label, disp_label, config, defaulttab, width, height){
 
@@ -41,7 +47,7 @@ function add_tab(label, disp_label, config, defaulttab, width, height){
     var apply_id = 'apply_'+label;
     var plot_id = 'map_img_'+label;
     var fn = config.filenames[label];
-    var tab = '<fieldset><object clss="ext_obj" data="'+fn+'" width="'+width+'" height="'+height+'" id="'+plot_id+'">       Your browser doesn’t support the object tag. </object>';
+    var tab = '<fieldset><object class="ext_obj" data="'+fn+'" width="'+width+'" height="'+height+'" id="'+plot_id+'">       Your browser doesn’t support the object tag. </object>';
     var div = '<div id="'+label+'", class="tabcontent">'+tab+'</div>';
     var onclick = "openTab(event, '"+label+"')";
     var button = '<button class="tablinks" onclick="'+onclick+'" '+defaulttab+'>'+disp_label+'</button>';
@@ -64,7 +70,10 @@ $(document).ready(function(){
     }
     var config = json_parse();
     var tabs_cfg = config.Tabs;
-    console.log(tabs_cfg);
+    var time = config.Time;
+    $('.time-period').html(time);
+    var table_data = loadFile('table.html');
+    $('#table').html(table_data);
     for (i=0, l=tabs_cfg.entries.length; i < l; i++){
         var name = tabs_cfg.entries[i];
         var label = tabs_cfg.plotly_name[name];
